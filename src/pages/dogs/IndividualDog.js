@@ -53,7 +53,7 @@ export const IndividualDog = () => {
 									<section>
 										<h1 className="mb-5">{dog.name}</h1>
 										<p className="text-muted mt-0 d-flex align-items-center">
-											{dog.breed} <span class="material-icons-outlined ml-5">{dog.gender}</span>
+											{dog.breed} <span className="material-icons-outlined ml-5">{dog.gender}</span>
 										</p>
 									</section>
 									<section>
@@ -68,7 +68,7 @@ export const IndividualDog = () => {
 								<h5 className="mb-5">Walkers</h5>
 								<ul>
 									{dog.walkers.map((walker) => (
-										<li>{walker.name}</li>
+										<li key={walker.id}>{walker.name}</li>
 									))}
 								</ul>
 							</div>
