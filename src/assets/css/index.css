@@ -19,3 +19,8 @@ button.nav-link {
 	border-bottom: 1px solid var(--primary-color);
 	padding: 0;
 }
+
+.background-avatar {
+	background: no-repeat center;
+	background-size: cover;
+}

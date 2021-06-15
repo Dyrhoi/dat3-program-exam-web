@@ -1,7 +1,8 @@
 import { AdminDashboard } from "../pages/admin/AdminDashboard";
 import { SignIn, SignUp } from "../pages/Authentication";
-import { Dogs } from "../pages/Dogs";
 import { IndividualDog } from "../pages/dogs/IndividualDog";
+import { Owners } from "../pages/Owners";
+import { IndividualOwner } from "../pages/owners/IndividualOwner";
 import { Settings } from "../pages/user/Settings";
 import { Walkers } from "../pages/Walkers";
 import { Welcome } from "../pages/Welcome";
@@ -41,10 +42,16 @@ export const routes = [
 		component: Walkers,
 	},
 	{
-		path: "/dogs",
+		path: "/owners/",
 		exact: true,
 		protected: true,
-		component: Dogs,
+		component: Owners,
+	},
+	{
+		path: "/owners/:id",
+		exact: true,
+		protected: true,
+		component: IndividualOwner,
 	},
 	{
 		path: "/dogs/:id",

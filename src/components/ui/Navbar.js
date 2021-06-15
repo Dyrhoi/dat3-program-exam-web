@@ -53,7 +53,7 @@ export const Navbar = () => {
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className="nav-link" to="/walkers">
+						<NavLink className="nav-link" to="/owners">
 							Owners
 						</NavLink>
 					</li>

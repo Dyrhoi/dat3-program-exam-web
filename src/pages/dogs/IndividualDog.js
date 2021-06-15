@@ -5,6 +5,11 @@ import { API_MAIN } from "../../utils/api";
 import { getRandomColorFromString } from "../../utils/random-color";
 import { NotFound } from "../errors/NotFound";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
 export const IndividualDog = () => {
 	const { id } = useParams();
 
@@ -25,7 +30,7 @@ export const IndividualDog = () => {
 	}, [id]);
 
 	if (error) return <NotFound message="No dog exists with this ID." />;
-	if (dog == null) return "loading...";
+	if (dog == null) return "";
 
 	return (
 		<>
@@ -39,14 +44,11 @@ export const IndividualDog = () => {
 						<div className="content">
 							<div className="d-flex align-items-center">
 								<div
-									className="rounded"
+									className="rounded background-avatar"
 									style={{
 										backgroundImage: `url(${dog.imageUrl})`,
-										height: "15rem",
-										width: "15rem",
-										backgroundSize: "cover",
-										backgroundPosition: "center",
-										backgroundRepeat: "no-repeat",
+										height: "17rem",
+										width: "17rem",
 									}}
 								/>
 								<div className="ml-20 flex-1">
@@ -55,11 +57,14 @@ export const IndividualDog = () => {
 										<p className="text-muted mt-0 d-flex align-items-center">
 											{dog.breed} <span className="material-icons-outlined ml-5">{dog.gender}</span>
 										</p>
+										<p>
+											{dayjs().from(dayjs(dog.birthdate), true)} old ({dayjs(dog.birthdate).format("DD/MM/YYYY")})
+										</p>
 									</section>
 									<section>
 										<h5 className="mb-5 d-flex align-items-center">Owner</h5>
 										<p className="mt-0">
-											<Link to={`owners/${dog.owner.id}`}>{dog.owner.name}</Link>
+											<Link to={`/owners/${dog.owner.id}`}>{dog.owner.name}</Link>
 										</p>
 									</section>
 								</div>

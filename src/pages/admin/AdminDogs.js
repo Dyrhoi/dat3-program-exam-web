@@ -38,14 +38,11 @@ export const AdminDogs = () => {
 							<td>
 								<div className="d-flex align-item-center">
 									<div
-										className="rounded-circle"
+										className="rounded-circle background-avatar"
 										style={{
 											height: "3rem",
 											width: "3rem",
 											backgroundImage: `url(${dog.imageUrl})`,
-											backgroundSize: "cover",
-											backgroundPosition: "center",
-											backgroundRepeat: "no-repeat",
 										}}
 									/>
 									<div className="d-flex align-items-center ml-10">{dog.name}</div>
