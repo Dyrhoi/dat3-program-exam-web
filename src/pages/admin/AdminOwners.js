@@ -12,6 +12,8 @@ export const AdminOwners = () => {
 		doAsynchronousCall();
 	}, []);
 
+	/** */
+
 	return (
 		<section>
 			<h2>Owners</h2>
@@ -49,6 +51,13 @@ export const AdminOwners = () => {
 					))}
 				</tbody>
 			</table>
+			<div className="mb-20"></div>
+			<div className="bottom-0 position-sticky bg-white d-flex align-items-center" style={{ height: "60px" }}>
+				<button className="btn-primary btn d-flex align-items-center">
+					<span className="material-icons-outlined mr-10">add_circle</span>
+					Create owner
+				</button>
+			</div>
 		</section>
 	);
 };

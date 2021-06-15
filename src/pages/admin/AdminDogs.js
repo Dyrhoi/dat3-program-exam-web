@@ -55,7 +55,7 @@ export const AdminDogs = () => {
 							<td>{dog.walkers.map((walker) => walker.name).join(", ")}</td>
 							<td>{dog.breed}</td>
 							<td>{dog.gender}</td>
-							<td>{dayjs(parseInt(dog.birthdate)).format()}</td>
+							<td>{dayjs(parseInt(dog.birthdate)).format("DD/MM/YYYY")}</td>
 							<td>
 								<div className="d-flex justify-content-end">
 									<button className="btn btn-secondary d-flex align-items-center">
@@ -70,6 +70,7 @@ export const AdminDogs = () => {
 					))}
 				</tbody>
 			</table>
+			<div className="mb-20"></div>
 			<div className="bottom-0 position-sticky bg-white d-flex align-items-center" style={{ height: "60px" }}>
 				<button className="btn-primary btn d-flex align-items-center">
 					<span className="material-icons-outlined mr-10">add_circle</span>
