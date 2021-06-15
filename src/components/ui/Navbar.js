@@ -44,13 +44,17 @@ export const Navbar = () => {
 		<nav className="navbar">
 			<div className="container">
 				<NavLink to="/" className="navbar-brand">
-					Start Code
+					Wadog
 				</NavLink>
-				<span className="navbar-text text-monospace">v2.0</span>
 				<ul className="navbar-nav">
 					<li className="nav-item">
 						<NavLink className="nav-link" to="/walkers">
 							Walkers
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink className="nav-link" to="/walkers">
+							Owners
 						</NavLink>
 					</li>
 				</ul>
