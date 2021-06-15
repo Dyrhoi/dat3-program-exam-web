@@ -5,3 +5,17 @@ button.nav-link {
 .container.form-container {
 	max-width: 50rem;
 }
+
+.tab .nav-item:not(:first-of-type) {
+	padding-left: 2rem;
+}
+
+.tab .nav-link {
+	padding: 0;
+}
+
+.tab .nav-link.active {
+	color: var(--primary-color);
+	border-bottom: 1px solid var(--primary-color);
+	padding: 0;
+}

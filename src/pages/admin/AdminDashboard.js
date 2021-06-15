@@ -1,51 +1,40 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import { useEffect, useState } from "react";
-import { API_MAIN } from "../../utils/api";
+import { useState } from "react";
+import { AdminDogs } from "./AdminDogs";
+import { AdminOwners } from "./AdminOwners";
+import { AdminUsers } from "./AdminUsers";
+import { AdminWalkers } from "./AdminWalkers";
 
 dayjs.extend(relativeTime);
 
 export const AdminDashboard = () => {
-	const [users, setUsers] = useState([]);
+	const tabs = { owners: AdminOwners, walkers: AdminWalkers, dogs: AdminDogs, users: AdminUsers };
+	const [tab, setTab] = useState(Object.keys(tabs)[0]);
 
-	useEffect(() => {
-		const doAsynchronousCall = async () => {
-			const response = await API_MAIN.get("admin/users");
-			setUsers(response.data);
-		};
-		doAsynchronousCall();
-	}, []);
+	const RenderedComponent = tabs[tab];
 
 	return (
-		<div className="container">
-			<div className="content">
-				<h1>Dashboard</h1>
-				<section>
-					<h2>Users</h2>
-					<p>Displaying all ({users.length}) users.</p>
-					<table className="table table-bordered">
-						<thead>
-							<tr>
-								<th>Username</th>
-								<th>Roles</th>
-								<th>Last updated</th>
-								<th>Created at</th>
-							</tr>
-						</thead>
-						<tbody>
-							{users.map((user) => (
-								<tr>
-									<td>{user.username}</td>
-									<td>{user.roles.join(", ")}</td>
-									<td>{user.updatedAt ? dayjs(parseInt(user.updatedAt)).from() : "Never"}</td>
-									<td>{dayjs(parseInt(user.createdAt)).from()}</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
-				</section>
+		<>
+			<nav className="navbar border-0">
+				<div className="container">
+					<ul className="navbar-nav tab">
+						{Object.keys(tabs).map((key) => (
+							<li key={key} className="nav-item border-1">
+								<button onClick={() => setTab(key)} className={"nav-link tab " + (tab === key ? "active" : "")}>
+									{key.charAt(0).toUpperCase() + key.slice(1)}
+								</button>
+							</li>
+						))}
+					</ul>
+				</div>
+			</nav>
+			<div className="container">
+				<div className="content">
+					<RenderedComponent />
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
