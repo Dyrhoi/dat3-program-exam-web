@@ -47,7 +47,13 @@ export const Navbar = () => {
 					Start Code
 				</NavLink>
 				<span className="navbar-text text-monospace">v2.0</span>
-
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<NavLink className="nav-link" to="/walkers">
+							Walkers
+						</NavLink>
+					</li>
+				</ul>
 				<ul className="ml-auto navbar-nav">{loginArea}</ul>
 			</div>
 		</nav>
