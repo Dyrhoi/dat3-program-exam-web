@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_MAIN } from "../../utils/api";
+import { getRandomColorFromString } from "../../utils/random-color";
 import { NotFound } from "../errors/NotFound";
 
 export const IndividualDog = () => {
@@ -29,7 +30,7 @@ export const IndividualDog = () => {
 	return (
 		<>
 			<div className="container">
-				<div className="bg-primary" style={{ height: "15rem" }} />
+				<div style={{ height: "15rem", backgroundColor: getRandomColorFromString(dog.name) }} />
 				<div className="position-relative m-auto" style={{ maxWidth: "55rem" }}>
 					<div
 						className="bg-white position-absolute"
