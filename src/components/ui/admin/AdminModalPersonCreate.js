@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { API_MAIN } from "../../../utils/api";
 import Select from "react-select";
+import { timeout } from "../../../utils/util";
 
 export const AdminModalCreate = ({ editing, handleUpdate, personType }) => {
 	const [restFormData, setRestFormData] = useState({});
@@ -23,6 +24,8 @@ export const AdminModalCreate = ({ editing, handleUpdate, personType }) => {
 				handleUpdate();
 				toast(builtFormData.name + " was created.");
 				setComplete(true);
+				await timeout(100);
+				setComplete(false);
 			} catch (_error) {
 				const error = _error.response.data;
 				toast.error(error.message);
