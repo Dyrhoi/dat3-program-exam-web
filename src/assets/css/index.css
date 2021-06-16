@@ -24,3 +24,8 @@ button.nav-link {
 	background: no-repeat center;
 	background-size: cover;
 }
+
+.modal {
+	position: fixed;
+	z-index: 90;
+}
